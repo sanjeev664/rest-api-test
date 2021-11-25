@@ -2,6 +2,7 @@ from django.urls import path, include
 from . import views
 from rest_framework import routers
 from rest_framework_simplejwt import views as jwt_views
+from .helpers import LogoutUserView, LogoutAllUserView
 
 
 # Routers provide an easy way of automatically determining the URL conf.
@@ -15,4 +16,6 @@ urlpatterns = [
     path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('auth/login/', views.LoginApiKnox.as_view(), name='knoz_login'),
     path('auth/register/', views.RegisterView.as_view(), name="knoz_regsiter"),
+    path('api/logout/', LogoutUserView.as_view(), name='logout'),
+    path('api/logout_all/', LogoutAllUserView.as_view(), name='logout_all'),
 ]

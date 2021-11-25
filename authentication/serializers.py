@@ -18,8 +18,13 @@ User = get_user_model()
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email']
-
+        fields = [ 
+            "email", 
+            "country", 
+            "city", 
+            "email", 
+            "gender"
+        ]
 
 class AuthTokenLoginSerializer(serializers.Serializer):
     email = serializers.CharField(
@@ -130,3 +135,4 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         user.save()
         return user
+        
