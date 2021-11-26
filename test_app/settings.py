@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3ey&3zd$2j5!y$6-@iglzaxuqer5usen&-o22*9%ugshlnd)66'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'drf_yasg',
     # 'django_rest_passwordreset',
     'authentication',
-    'crispy_forms',
 ]
 
 AUTH_USER_MODEL = "authentication.User"
@@ -146,7 +145,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
